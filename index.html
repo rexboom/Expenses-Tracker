@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b0d12"><link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/icon.svg"><link rel="stylesheet" href="style.css">
+  <title>Ledger — Personal Finance</title>
+</head>
+<body>
+  <div class="ambient"></div><main class="app-shell">
+    <header class="topbar"><div><p class="eyebrow" id="page-kicker">YOUR FINANCES</p><h1 id="page-title">Good evening</h1></div><button class="avatar" aria-label="Open settings" data-page="settings">S</button></header>
+    <section id="dashboard" class="page active">
+      <div class="balance-card glass"><span>Available balance</span><h2 id="balance">DZD 0.00</h2><div class="balance-detail"><span>↑ <b id="income">DZD 0</b> income</span><span>↓ <b id="expenses">DZD 0</b> spent</span></div></div>
+      <div class="metric-grid"><article class="metric-card"><span>Savings rate</span><strong id="savings-rate">—</strong><i>this month</i></article><article class="metric-card"><span>Today</span><strong id="today-spend">DZD 0</strong><i>spent today</i></article><article class="metric-card"><span>This month</span><strong id="month-spend">DZD 0</strong><i>outgoing</i></article></div>
+      <div class="section-head"><h3>Recent activity</h3><button class="text-btn" data-page="history">See all</button></div><div id="recent-list" class="transaction-list"></div>
+    </section>
+    <section id="add" class="page"><form id="transaction-form" class="form-card" novalidate>
+      <div class="segmented" role="group" aria-label="Transaction type"><button type="button" class="active" data-type="expense">Expense</button><button type="button" data-type="income">Income</button></div>
+      <label>Category<select id="category" required></select></label><label>Amount<div class="amount-input"><span id="currency-symbol">DZD</span><input id="amount" inputmode="decimal" type="number" min="0.01" step="0.01" placeholder="0.00" required></div></label>
+      <label>Note <input id="note" maxlength="100" placeholder="What was this for?"></label><label>Tags <input id="tags" maxlength="80" placeholder="e.g. work, recurring"></label>
+      <label class="switch-row">Favorite transaction <input id="favorite" type="checkbox"><span class="switch"></span></label>
+      <button class="primary-btn" type="submit">Save transaction</button></form><div class="quick-add"><h3>Quick add</h3><div id="quick-buttons"></div></div>
+    </section>
+    <section id="history" class="page"><div class="history-tools"><input id="search" type="search" placeholder="Search transactions" aria-label="Search transactions"><button id="filter-toggle" class="icon-btn" aria-label="Show filters">⚙</button></div><div id="filters" class="filters hidden"><select id="filter-type"><option value="">All types</option><option value="expense">Expenses</option><option value="income">Income</option></select><select id="filter-category"><option value="">All categories</option></select><select id="filter-month"><option value="">All months</option></select><select id="filter-year"><option value="">All years</option></select><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option></select></div><div id="history-list" class="transaction-list"></div></section>
+    <section id="analytics" class="page"><div class="stats-grid" id="stats"></div><div class="chart-grid"><article class="chart-card"><h3>Expenses by category</h3><canvas id="category-chart"></canvas></article><article class="chart-card"><h3>Monthly spending</h3><canvas id="monthly-chart"></canvas></article><article class="chart-card"><h3>Income vs expenses</h3><canvas id="compare-chart"></canvas></article><article class="chart-card"><h3>Balance over time</h3><canvas id="balance-chart"></canvas></article><article class="chart-card"><h3>Savings trend</h3><canvas id="savings-chart"></canvas></article></div></section>
+    <section id="budget" class="page"><div class="section-head"><div><p class="eyebrow">MONTHLY LIMITS</p><h2>Budgets</h2></div><button class="primary-small" id="new-budget">Add budget</button></div><div id="budget-list" class="budget-list"></div></section>
+    <section id="settings" class="page"><div class="settings-card"><h3>Preferences</h3><label>Currency<select id="currency"><option value="DZD">DZD — Algerian Dinar</option><option value="USD">USD — US Dollar</option><option value="EUR">EUR — Euro</option><option value="GBP">GBP — Pound Sterling</option></select></label><label>Appearance<select id="theme"><option value="dark">Dark</option><option value="light">Light</option><option value="system">System</option></select></label></div><div class="settings-card"><h3>Your data</h3><button data-action="export-json">Export JSON</button><button data-action="import">Import JSON</button><button data-action="export-csv">Export CSV</button><button class="danger" data-action="clear">Clear all data</button><input id="import-file" type="file" accept="application/json" hidden></div></section>
+  </main><button id="fab" class="fab" aria-label="Add a transaction">＋</button><nav class="bottom-nav" aria-label="Main navigation"><button class="active" data-page="dashboard">⌂<span>Home</span></button><button data-page="history">◷<span>History</span></button><button data-page="add">＋<span>Add</span></button><button data-page="analytics">◔<span>Insights</span></button><button data-page="budget">▥<span>Budget</span></button></nav>
+  <div id="toast" class="toast" role="status"></div><div id="modal-root"></div><script type="module" src="app.js"></script>
+</body></html>
