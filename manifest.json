@@ -1,1 +1,36 @@
-{"name":"Ledger — Personal Finance","short_name":"Ledger","start_url":"./","display":"standalone","background_color":"#0b0d12","theme_color":"#0b0d12","description":"A private, offline-first personal finance tracker.","icons":[{"src":"assets/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
+{
+  "name": "Ledger — Personal & Business Finance",
+  "short_name": "Ledger",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0b0d12",
+  "theme_color": "#0b0d12",
+  "description": "An offline-first, private personal and business finance application.",
+  "categories": ["finance", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "New Transaction",
+      "short_name": "Add",
+      "description": "Quickly record a new income or expense",
+      "url": "./#add",
+      "icons": [{ "src": "assets/icon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Transactions Timeline",
+      "short_name": "History",
+      "description": "View recent transaction timeline and search",
+      "url": "./#history",
+      "icons": [{ "src": "assets/icon.svg", "sizes": "any" }]
+    }
+  ]
+}
